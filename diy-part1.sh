@@ -18,8 +18,6 @@
 echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2' >>feeds.conf.default
 echo 'src-git passpackages https://github.com/xiaorouji/openwrt-passwall-packages' >>feeds.conf.default
 echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
-rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 #pushd feeds/packages/lang
 #rm -rf golang && svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang
 #popd
