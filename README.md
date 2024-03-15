@@ -2,7 +2,7 @@
 
 构建r2s-ext4极简固件
 
-包含passwall2,ttyd.
+仅包含passwall2,ttyd.
 
 默认192.168.1.1
 
