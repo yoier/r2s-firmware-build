@@ -1,6 +1,9 @@
 个人使用(openwrt main源码)
+
 构建r2s-ext4极简固件
+
 包含passwall2,ttyd.
+
 默认192.168.1.1
 
 自行配置lan接口eth0,当旁路网关使用,dnsmasq过滤分流
