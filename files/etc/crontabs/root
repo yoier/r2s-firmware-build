@@ -1,0 +1,2 @@
+10 5 * * * /scripts/adrule.sh
+20 5 * * 1 sleep 70 && touch /etc/banner && reboot
