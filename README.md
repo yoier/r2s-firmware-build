@@ -6,7 +6,7 @@
 
 其他包:python3,bash,vim-full
 
-默认旁路网关模式:192.168.27.5(主路由:192.168.27.1)
+默认旁路网关模式:192.168.27.5(主路由:192.168.27.1)配置文件[network firewall dhcp](https://github.com/yoier/r2s-firmware-build/tree/main/files/etc/config)
 
 配置lan接口eth0,dnsmasq过滤广告,添加温控脚本
 
