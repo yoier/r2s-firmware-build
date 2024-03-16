@@ -4,6 +4,8 @@
 
 仅包含passwall2,ttyd.
 
+其他包:python3,bash,vim-full
+
 默认192.168.1.1
 
 自行配置lan接口eth0,当旁路网关使用,dnsmasq过滤分流
