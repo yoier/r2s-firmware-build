@@ -1,2 +1,2 @@
-10 5 * * * /scripts/adrule.sh
+# (dnsmasq拦截广告)国内需要开启代理 10 5 * * * /scripts/adrule.sh
 20 5 * * 1 sleep 70 && touch /etc/banner && reboot
