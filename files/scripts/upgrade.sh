@@ -40,7 +40,7 @@ echo -e '\e[92mbacking\e[0m'
 sleep 10
 cd /mnt/img
 sysupgrade -b back.tar.gz
-tar zxf back.tar.gz --exclude='rc.local'
+tar -X 'rc.local' -zxf back.tar.gz
 echo -e '\e[92mbacked,umount\e[0m'
 #rm back.tar.gz
 cd /tmp/upg
