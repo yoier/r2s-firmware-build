@@ -1,8 +1,4 @@
 #!/bin/bash -e
-# dnsmasq的广告屏蔽更新脚本
-# 国内用户需要passwall开启路由器本机代理
-# by github yoier [https://github.com/yoier/r2s-firmware-build/edit/main/files/scripts/adrule.sh]
-
 cd /tmp
 wget -q https://raw.githubusercontent.com/neodevpro/neodevhost/master/dnsmasq.conf -O dnsmasq.conf.tmp0
 sed -i '/^#/d' dnsmasq.conf.tmp0
@@ -20,6 +16,6 @@ sort dnsmasq.conf.tmp0 | uniq > /etc/dnsmasq.conf
 
 
 #mv -f smartdns.conf /etc/smartdns/adrule.conf
-/etc/init.d/dnsmasq restart
+#/etc/init.d/dnsmasq restart
 exit
 

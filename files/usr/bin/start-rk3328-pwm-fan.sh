@@ -27,8 +27,9 @@ echo -n 25000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
 
 # declare -a CpuTemps=(55000 43000 38000 32000)
 # declare -a PwmDutyCycles=(1000 20000 30000 45000)
+# declare -a CpuTemps=(75000 63000 58000 52000)
 
-declare -a CpuTemps=(75000 63000 58000 52000)
+declare -a CpuTemps=(63000 58000 52000 46000)
 declare -a PwmDutyCycles=(25000 35000 45000 46990)
 
 declare -a Percents=(100 75 50 25)
@@ -57,8 +58,8 @@ do
 
 	echo -n $DUTY > /sys/class/pwm/pwmchip0/pwm0/duty_cycle;
 
-        echo "temp: $temp, duty: $DUTY, ${PERCENT}%"
+        # echo "temp: $temp, duty: $DUTY, ${PERCENT}%"
         # cat /sys/devices/system/cpu/cpu*/cpufreq/cpuinfo_cur_freq
 
-	sleep 2s;
+	sleep 8s;
 done
