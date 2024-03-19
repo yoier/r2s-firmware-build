@@ -1,7 +1,7 @@
 # Put your custom commands here that should be executed once
 # the system init finished. By default this file does nothing.
 # 20 5 * * 1 sleep 70 && touch /etc/banner && reboot
-chmod 755 /etc/init.d/fa-rk3328-pwmfan /usr/bin/start-rk3328-pwm-fan.sh /scripts/adrule.sh
+chmod 755 /etc/init.d/fa-rk3328-pwmfan /usr/bin/start-rk3328-pwm-fan.sh /scripts/adrule.sh /scripts/upgrade.sh 
 ln -s /etc/init.d/fa-rk3328-pwmfan /etc/rc.d/S96fa-rk3328-pwmfan
 sed -i '/passwall2\|passpackages\|kenzo/d'  /etc/opkg/distfeeds.conf
 sed -i '4,7d' /etc/rc.local
