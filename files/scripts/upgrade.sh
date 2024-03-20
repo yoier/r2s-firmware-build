@@ -8,7 +8,7 @@
 #bg
 if ! command -v resize2fs &> /dev/null; then echo -e '\e[91m'$1'cmd_fail! installing pkg\e[0m'
 opkg update || true
-opkg install fdisk sfdisk losetup resize2fs coreutils-truncate coreutils-dd
+opkg install fdisk sfdisk losetup resize2fs coreutils-truncate coreutils-dd tar
 if ! command -v resize2fs &> /dev/null; then echo -e '\e[91m'$1'cmd_fail_check your network! \e[0m' && exit 1; fi
 fi
 
