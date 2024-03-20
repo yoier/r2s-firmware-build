@@ -1,6 +1,7 @@
 #!/bin/bash
 #bash upgrade.sh (online/offline|must) (needback/noback|must)
 #R2S upgrade scr
+#curl -L -o /scripts/upgrade.sh https://raw.githubusercontent.com/yoier/r2s-firmware-build/main/files/scripts/upgrade.sh
 #20 5 * * 1 /scripts/upgrade.sh online needback
 LOG_FILE="/tmp/update_scr.log"
 
