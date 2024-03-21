@@ -2,6 +2,7 @@
 #bash upgrade.sh (online/offline|must) (needback/noback|must)
 #R2S upgrade scr
 #curl -L -o /scripts/upgrade.sh https://raw.githubusercontent.com/yoier/r2s-firmware-build/main/files/scripts/upgrade.sh
+#curl -L -o /scripts/otherbackfs.txt https://raw.githubusercontent.com/yoier/r2s-firmware-build/main/files/scripts/otherbackfs.txt
 #20 5 * * 1 /scripts/upgrade.sh online needback
 LOG_FILE="/tmp/update_scr.log"
 OTHER_BACK_FILE="/scripts/otherbackfs.txt"
@@ -129,7 +130,7 @@ wait_seds 10
 #bg
 if ! command -v resize2fs &> /dev/null; then loge "CMD_not_found! installing pkg" red
 	opkg update || true
-	opkg install fdisk sfdisk losetup resize2fs coreutils-truncate coreutils-dd tar
+	opkg install fdisk sfdisk losetup resize2fs coreutils-truncate coreutils-dd
 	if ! command -v resize2fs &> /dev/null; then loge "Installation failed,please check your network!" red && exit 1; else loge "Successful installation" green; fi
 fi
 
