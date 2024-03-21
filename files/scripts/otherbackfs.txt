@@ -1,0 +1,4 @@
+/etc/init.d/fa-rk3328-pwmfan
+/usr/bin/start-rk3328-pwm-fan.sh
+/scripts
+/usr/share/v2ray

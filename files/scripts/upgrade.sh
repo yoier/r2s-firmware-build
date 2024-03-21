@@ -4,6 +4,7 @@
 #curl -L -o /scripts/upgrade.sh https://raw.githubusercontent.com/yoier/r2s-firmware-build/main/files/scripts/upgrade.sh
 #20 5 * * 1 /scripts/upgrade.sh online needback
 LOG_FILE="/tmp/update_scr.log"
+OTHER_BACK_FILE="/scripts/otherbackfs.txt"
 
 function loge () {
 #red 1;blue 2;green 3
@@ -59,6 +60,26 @@ function offline () {
 	checkver
 }
 
+function otherback () { 
+	for file in $(cat $OTHER_BACK_FILE); do
+		if [ -f "$file" ]; then
+			local dirn=$(dirname $file)
+			mkdir -p $1$dirn
+			cp -p $file $1$dirn
+			loge "Copy file $file to $1$dirn" blue
+			
+		elif [ -d "$file" ]; then
+			local dirn=$(dirname $file)
+			mkdir -p $1$dirn
+			cp -rp $file $1$dirn
+			loge "Copy dir $file to $1$dirn" blue
+		else
+			loge "Err file or dir: $file" red
+		fi
+	done
+	loge "Copy success" green
+}
+
 function isbackup () {
 	mkdir -p /mnt/img
 	mount -t ext4 ${lodev} /mnt/img
@@ -66,11 +87,20 @@ function isbackup () {
 	wait_seds 10
 	cd /mnt/img
 	sysupgrade -b back.tar.gz
-	tar -zxf back.tar.gz --exclude='rc.local'
+	tar -zxf back.tar.gz
+	cat > localexr.tmp << EOF
+ln -s /etc/init.d/fa-rk3328-pwmfan /etc/rc.d/S96fa-rk3328-pwmfan
+sed -i '/passwall2\|passpackages\|kenzo/d' /etc/opkg/distfeeds.conf
+sed -i '2,4d' /etc/rc.local
+EOF
+	sed '1r localexr.tmp' /mnt/img/etc/rc.local
+	rm localexr.tmp
 	echo $sha256numr > thisver.sha
+	otherback /mnt/img
 	loge "Restoring backup completed,umount" green
 	#rm back.tar.gz
 	cd /tmp/upg
+	wait_seds 3
 	umount /mnt/img
 }
 
