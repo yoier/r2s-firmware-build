@@ -94,7 +94,7 @@ ln -s /etc/init.d/fa-rk3328-pwmfan /etc/rc.d/S96fa-rk3328-pwmfan
 sed -i '/passwall2\|passpackages\|kenzo/d' /etc/opkg/distfeeds.conf
 sed -i '2,4d' /etc/rc.local
 EOF
-	sed '1r localexr.tmp' /mnt/img/etc/rc.local
+	sed -i '1r localexr.tmp' /mnt/img/etc/rc.local
 	rm localexr.tmp
 	echo $sha256numr > thisver.sha
 	otherback /mnt/img
