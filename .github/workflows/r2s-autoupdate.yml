@@ -11,11 +11,11 @@
 # https://github.com/openwrt/openwrt
 # https://github.com/coolsnowwolf/lede
 
-name: OpenWrt Builder
+name: OpenWrt Auto Builder
 
 on:
   schedule:
-    - cron: "48 3 * * 0"
+    - cron: "51 3 * * 0"
   repository_dispatch:
   workflow_dispatch:
 
