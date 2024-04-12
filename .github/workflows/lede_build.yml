@@ -11,7 +11,7 @@
 # https://github.com/openwrt/openwrt
 # https://github.com/coolsnowwolf/lede
 
-name: OpenWrt Auto Builder
+name: OpenWrt_lede Auto Builder
 
 on:
   #schedule:
