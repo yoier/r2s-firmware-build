@@ -23,7 +23,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: .config
+  CONFIG_FILE: .ledeconfig
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
@@ -64,6 +64,10 @@ jobs:
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
+        git clone https://github.com/openwrt/openwrt -b master openwrtmp
+        rm -rf openwrt/package/network/services/dnsmasq
+        mv openwrtmp/package/network/services/dnsmasq openwrt/package/network/services
+        rm -rf openwrtmp
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
