@@ -12,7 +12,7 @@
 默认地址192.168.1.1
 
 ~~配置lan接口eth0,关闭ipv6解析~~
-dnsmasq过滤广告,添加[温控脚本](https://github.com/friendlyarm/friendlywrt/tree/e1fb88ff29bcf634c875b94a9026565c7780149f/target/linux/rockchip-rk3328/base-files/usr/bin)
+添加[温控脚本](https://github.com/friendlyarm/friendlywrt/tree/e1fb88ff29bcf634c875b94a9026565c7780149f/target/linux/rockchip-rk3328/base-files/usr/bin)
 
 ## Credits
 
