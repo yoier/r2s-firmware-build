@@ -91,8 +91,9 @@ function isbackup () {
 	tar -zxf back.tar.gz
 	cat > localexr.tmp << EOF
 ln -s /etc/init.d/fa-rk3328-pwmfan /etc/rc.d/S96fa-rk3328-pwmfan
+service fa-rk3328-pwmfan start
 sed -i '/passwall2\|passpackages\|kenzo/d' /etc/opkg/distfeeds.conf
-sed -i '2,4d' /etc/rc.local
+sed -i '2,5d' /etc/rc.local
 EOF
 	sed -i '1r localexr.tmp' /mnt/img/etc/rc.local
 	rm localexr.tmp
