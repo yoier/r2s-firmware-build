@@ -4,13 +4,13 @@
 
 firewall4,nftable
 
-插件仅包含passwall2(xray，~~sing-box~~，hysteria2),ttyd.
+插件仅包含passwall2(xray，sing-box，hysteria2),ttyd.
 
 其他包:python3,bash,vim-full
 
 默认地址192.168.1.1
 
-自动更新扩容脚本，风扇[温控脚本](https://github.com/friendlyarm/friendlywrt/tree/e1fb88ff29bcf634c875b94a9026565c7780149f/target/linux/rockchip-rk3328/base-files/usr/bin)。
+自动更新扩容脚本，带风扇[温控脚本](https://github.com/friendlyarm/friendlywrt/tree/e1fb88ff29bcf634c875b94a9026565c7780149f/target/linux/rockchip-rk3328/base-files/usr/bin)。
 
 ~~更改配置文件[network firewall dhcp](https://github.com/yoier/r2s-firmware-build/tree/main/files/etc/config)~~
 
