@@ -90,10 +90,12 @@ function isbackup () {
 	sysupgrade -b back.tar.gz
 	tar -zxf back.tar.gz
 	cat > localexr.tmp << EOF
+sysctl -w net.core.rmem_max=16777216
+sysctl -w net.core.wmem_max=16777216
 ln -s /etc/init.d/fa-rk3328-pwmfan /etc/rc.d/S96fa-rk3328-pwmfan
 service fa-rk3328-pwmfan start
 sed -i '/passwall2\|passpackages\|kenzo/d' /etc/opkg/distfeeds.conf
-sed -i '2,5d' /etc/rc.local
+sed -i '4,7d' /etc/rc.local
 EOF
 	sed -i '1r localexr.tmp' /mnt/img/etc/rc.local
 	rm localexr.tmp
@@ -130,6 +132,7 @@ wait_seds 10
 
 #bg
 if ! command -v resize2fs &> /dev/null; then loge "CMD_not_found! installing pkg" red
+# if ! false; then loge "CMD_not_found! installing pkg" red
 	opkg update || true
 	opkg install fdisk sfdisk losetup resize2fs coreutils-truncate coreutils-dd
 	if ! command -v resize2fs &> /dev/null; then loge "Installation failed,please check your network!" red && exit 1; else loge "Successful installation" green; fi
