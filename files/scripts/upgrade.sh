@@ -30,7 +30,7 @@ function wait_seds() {
 		echo -ne "\e[92m\rWait $i s...\e[0m"
 		sleep 1
 	done
-		echo "\rOver" green
+		echo "Over"
 }
 
 function checkver () {
@@ -90,13 +90,10 @@ function isbackup () {
 	sysupgrade -b back.tar.gz
 	tar -zxf back.tar.gz
 	cat > localexr.tmp << EOF
-ln -s /etc/init.d/fa-rk3328-pwmfan /etc/rc.d/S96fa-rk3328-pwmfan
-service fa-rk3328-pwmfan start
-sed -i '/passwall2\|passpackages\|kenzo/d' /etc/opkg/distfeeds.conf
-sed -i '3,6d' /etc/rc.local
+bash /scripts/first-boot.sh
+sed -i '1,2d' /etc/rc.local
 EOF
-	sed -i '2r localexr.tmp' /mnt/img/etc/rc.local
-	# rc.local会保存之前配置
+	sed -i '0r localexr.tmp' /mnt/img/etc/rc.local
 	rm localexr.tmp
 	echo $sha256numr > thisver.sha
 	otherback /mnt/img
@@ -131,9 +128,8 @@ wait_seds 10
 
 #bg
 if ! command -v resize2fs &> /dev/null; then loge "CMD_not_found! installing pkg" red
-# if ! false; then loge "CMD_not_found! installing pkg" red
-	opkg update || true
-	opkg install fdisk sfdisk losetup resize2fs coreutils-truncate coreutils-dd
+	apk update || true
+	apk add fdisk sfdisk losetup resize2fs coreutils-truncate coreutils-dd
 	if ! command -v resize2fs &> /dev/null; then loge "Installation failed,please check your network!" red && exit 1; else loge "Successful installation" green; fi
 fi
 
