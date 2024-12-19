@@ -1,12 +1,12 @@
 个人使用(由openwrt main源码)
 
-构建r2s-ext4极简固件
+构建r2s-ext4极简固件,only apk support
 
 firewall4,nftable
 
-插件仅包含passwall2(xray，sing-box，hysteria2),ttyd.
+插件仅包含passwall2(xray，~~sing-box~~,hysteria2),ttyd.
 
-其他包:python3,bash,vim-full
+其他包:python3,bash,vim-full,ffmpeg,ffprobe,fdisk,sfdisk,losetup,resize2fs,coreutils-truncate,coreutils-dd
 
 默认地址192.168.1.1
 
