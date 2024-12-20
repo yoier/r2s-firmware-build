@@ -94,8 +94,11 @@ function isbackup () {
 bash /scripts/first-boot.sh
 sed -i '1,3d' /etc/rc.local
 EOF
+	wait_seds 1
 	sed -i '1i # firstCMD' /mnt/img/etc/rc.local
+	wait_seds 1
 	sed -i '1r localexr.tmp' /mnt/img/etc/rc.local
+	wait_seds 1
 	rm localexr.tmp
 	echo $sha256numr > thisver.sha
 	otherback /mnt/img
