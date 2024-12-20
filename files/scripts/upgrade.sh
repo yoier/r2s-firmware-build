@@ -89,11 +89,13 @@ function isbackup () {
 	cd /mnt/img
 	sysupgrade -b back.tar.gz
 	tar -zxf back.tar.gz
+	wait_seds 5
 	cat > localexr.tmp << EOF
 bash /scripts/first-boot.sh
-sed -i '1,2d' /etc/rc.local
+sed -i '1,3d' /etc/rc.local
 EOF
-	sed -i '0r localexr.tmp' /mnt/img/etc/rc.local
+	sed -i '1i # firstCMD' /mnt/img/etc/rc.local
+	sed -i '1r localexr.tmp' /mnt/img/etc/rc.local
 	rm localexr.tmp
 	echo $sha256numr > thisver.sha
 	otherback /mnt/img
