@@ -4,7 +4,7 @@
 
 firewall4,nftable
 
-插件仅包含passwall2(xray，~~sing-box~~,hysteria2),ttyd.
+插件仅包含passwall2(xray，~~sing-box~~,hysteria2),ttyd,wireguard.
 
 其他包:python3,bash,vim-full,ffmpeg,ffprobe,fdisk,sfdisk,losetup,resize2fs,coreutils-truncate,coreutils-dd
 
