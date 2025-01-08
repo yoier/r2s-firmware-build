@@ -1,12 +1,12 @@
 个人使用(由openwrt main源码)
 
-构建r2s-ext4极简固件,only apk support
+构建r2s-ext4极简固件,apk取代opkg[相关命令](https://openwrt.org/docs/guide-user/additional-software/opkg-to-apk-cheatsheet),不支持opkg.
 
-firewall4,nftable
+firewall4,nftable,dnsmasq-full
 
-插件仅包含passwall2(xray，~~sing-box~~,hysteria2),ttyd,wireguard.
+插件仅包含passwall2(xray，~~sing-box~~,hysteria2),ttyd,wireguard,tailscale.
 
-其他包:python3,bash,vim-full,ffmpeg,ffprobe,fdisk,sfdisk,losetup,resize2fs,coreutils-truncate,coreutils-dd
+其他包:python3,bash,vim-full,ffmpeg,ffprobe,自动更新脚本依赖(fdisk,sfdisk,losetup,resize2fs,coreutils-truncate,coreutils-dd).
 
 默认地址192.168.1.1
 
