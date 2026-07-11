@@ -19,6 +19,7 @@ echo 'src-git passwall2 https://github.com/Openwrt-Passwall/openwrt-passwall2' >
 echo 'src-git passpackages https://github.com/Openwrt-Passwall/openwrt-passwall-packages' >>feeds.conf.default
 echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
 echo 'src-git openwrtdaede https://github.com/kenzok8/openwrt-daede' >>feeds.conf.default
+echo 'src-git vmlinuxbtf https://github.com/kenzok8/vmlinux-btf' >>feeds.conf.default
 #pushd feeds/packages/lang
 #rm -rf golang && svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang
 #popd
