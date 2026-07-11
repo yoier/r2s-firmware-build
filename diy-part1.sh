@@ -15,8 +15,8 @@
 
 # Add a feed source
 #echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
-echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2' >>feeds.conf.default
-echo 'src-git passpackages https://github.com/xiaorouji/openwrt-passwall-packages' >>feeds.conf.default
+echo 'src-git passwall2 https://github.com/Openwrt-Passwall/openwrt-passwall2' >>feeds.conf.default
+echo 'src-git passpackages https://github.com/Openwrt-Passwall/openwrt-passwall-packages' >>feeds.conf.default
 echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
 echo 'src-git openwrtdaede https://github.com/kenzok8/openwrt-daede' >>feeds.conf.default
 #pushd feeds/packages/lang
